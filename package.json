@@ -1,0 +1,45 @@
+{
+  "name": "kite-x402-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pay-per-run website acceptance checks for Kite agents",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node --import tsx src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:browser": "PLAYWRIGHT_BROWSERS_PATH=./.cache/ms-playwright vitest run --config vitest.browser.config.ts",
+    "demo": "PLAYWRIGHT_BROWSERS_PATH=./.cache/ms-playwright node --import tsx scripts/demo.ts",
+    "validate": "node --import tsx scripts/validate-manifest.ts",
+    "check": "npm run typecheck && npm test && npm run build && npm run validate",
+    "browser:install": "PLAYWRIGHT_BROWSERS_PATH=./.cache/ms-playwright playwright install chromium"
+  },
+  "dependencies": {
+    "@x402/core": "2.25.0",
+    "@x402/evm": "2.25.0",
+    "@x402/express": "2.25.0",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "express": "5.2.1",
+    "ipaddr.js": "2.5.0",
+    "pino": "10.3.1",
+    "playwright": "1.63.0",
+    "yaml": "2.9.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "26.6.2",
+    "@types/supertest": "7.2.1",
+    "supertest": "7.2.2",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vitest": "5.0.1"
+  },
+  "license": "Apache-2.0"
+}

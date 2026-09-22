@@ -1,0 +1,10 @@
+Kite Web Check / kite-x402-gateway
+
+src/payment/kite.ts and schema/service.schema.json are copied unchanged from:
+https://github.com/gokite-ai/kite-x402-services
+Commit: 893a27509648b660bbba626b0da59619a94f04ab
+License: Apache-2.0 (full text in docs/reference/KITE-LICENSE).
+
+The payment integration follows the upstream TypeScript Express template.
+Browser execution, target policy, reports and tests are project-specific work.
+This is an independent community project and is not an official Kite product.

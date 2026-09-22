@@ -1,0 +1,35 @@
+# Draft only. Replace maintainer/pay_to/upstream and add base_url before submission.
+schema: 1
+name: kite-x402-gateway
+display_name: Kite Web Check
+description: >-
+  Run desktop and mobile Chromium acceptance checks on a public webpage.
+  Receive structured findings, viewport screenshots and a self-contained HTML report.
+maintainer:
+  github: replace-me
+status: draft
+network: eip155:2368
+pay_to: "0x0000000000000000000000000000000000000000"
+upstream:
+  name: Self-hosted Playwright browser execution engine
+  url: https://replace-me.example.invalid
+  requires_api_key: false
+endpoints:
+  - method: POST
+    path: /v1/audits
+    summary: Inspect a public webpage and return desktop/mobile test evidence
+    price_usd: "0.01"
+    example_request:
+      body:
+        url: https://example.com
+        viewports: [desktop, mobile]
+        checks:
+          text: [Example Domain]
+          selectors: [h1]
+    pitfalls:
+      - A completed report that finds website defects is still billable.
+      - Public HTTP(S) pages only; ports 80/443; no login, forms or arbitrary scripts.
+      - This example has not yet been verified with a real Kite payment.
+categories: [web]
+tags: [testing, playwright, screenshots, agent-tools]
+source: custom
